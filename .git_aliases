@@ -1,0 +1,28 @@
+#
+#
+
+# Configs
+git config --global core.editor "code --wait"
+
+# Aliases
+alias gc="git commit -m"
+alias gca="git commit -C HEAD --amend"
+alias gs="git status"
+alias ga="git add"
+alias gal="git add ."
+alias gco="git checkout"
+alias gb="git branch -vv"
+alias gl="git log --pretty=oneline"
+alias gfd="git fetch origin develop:develop" # git update develop (GitFlow)
+alias gf="git fetch origin"
+alias gr="git rebase --interactive"
+# Functions
+
+#git branch WIPE -- deletes remote and local branch
+gbW() { git branch -D feature/$1 && git push --delete origin feature/$1; }
+# New feature/ branch
+gcofN(){ git checkout -b feature/$1; }
+gcof(){ git checkout feature/$1; }
+# Push current branch to origin and set upstram
+gp() { current_branch=$(git symbolic-ref --short HEAD)
+       git push -u origin $current_branch; }
