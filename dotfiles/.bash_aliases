@@ -8,10 +8,13 @@
 
 # Main settings
 export EDITOR="code"
-export dot_dir="/c/Users/FONE003/OneDrive - Banque Nationale du Canada/knowledge/dotfiles"
-export journal='/c/Users/FONE003/OneDrive - Banque Nationale du Canada/journal.md'
+# If readlink is not available or if journal is not in home, override with export statements in .bashrc
+dot_dir=${dot_dir:-$(dirname "$BASH_SOURCE")}
+echo "dot_dir is $dot_dir"
 
-    # test from https://github.com/holman/dotfiles/blob/master/script/bootstrap
+journal=${journal:-"~/journal.md"}
+
+# test from https://github.com/holman/dotfiles/blob/master/script/bootstrap
 info () { 
   printf "\r  [ \033[00;34m..\033[0m ] $1\n"
 }
@@ -19,7 +22,7 @@ info () {
 echo 'Loading configs from dotfiles'
 
 # LOAD OTHER .DOTFILES
-info "looking for other config files"
+info "looking for other config files in $dot_dir"
 if [ -f "$dot_dir/.git_aliases" ]
   then
     info 'loading git aliases'
