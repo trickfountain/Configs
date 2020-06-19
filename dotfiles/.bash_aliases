@@ -10,7 +10,6 @@
 export EDITOR="code"
 # If readlink is not available or if journal is not in home, override with export statements in .bashrc
 dot_dir=${dot_dir:-$(dirname "$BASH_SOURCE")}
-echo "dot_dir is $dot_dir"
 
 journal=${journal:-"~/journal.md"}
 
@@ -31,6 +30,7 @@ fi
 
 # NAVIGATION
 alias jdm="$EDITOR '$journal'"
+alias dotfiles="code $dot_dir/.bash_aliases"
 alias openv="$EDITOR '$dot_dir/.bash_aliases'"
 alias lsa="ls -la"
 alias ls="ls -xa"
