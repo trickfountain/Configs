@@ -4,8 +4,20 @@
 # Dotfiles
 
 ## Install
-Add `source .bash_aliases` wherever your config file is first loaded (`.bashrc`or `.bash_profile`)  
-Additional config files should be sourced from there.
+
+** WIP **
+For now it seems to work best if you export the location of your dotfiles and then source it.  
+This is what I used on the mac, change the full path to reflect the machine you are working on.
+
+Add the two following lines  wherever your config file is first loaded (`.bashrc`or `.bash_profile`) :  
+```
+export dot_dir="/Users/ericfontaine/Configs/dotfiles"
+source /Users/ericfontaine/Configs/dotfiles/.bash_aliases
+```
+
+### Git
+If you install zsh and Prezto, it comes with it's own git aliases.  
+If you need inspiration for new git aliases check SH's [repo](https://github.com/sorin-ionescu/prezto/blob/master/modules/git/alias.zsh)
 
 # VS Code configs
 
