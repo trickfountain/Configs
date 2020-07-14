@@ -18,11 +18,13 @@ alias gf="git fetch origin"
 alias gr="git rebase --interactive"
 # Functions
 
-#git branch WIPE -- deletes remote and local branch
+# git branch WIPE -- deletes remote and local branch
 gbW() { git branch -D feature/$1 && git push --delete origin feature/$1; }
+
 # New feature/ branch
-gcofN(){ git checkout -b feature/$1; }
 gcof(){ git checkout feature/$1; }
+gcofN(){ git checkout -b feature/$1; }
+
 # Push current branch to origin and set upstram
 gp() { current_branch=$(git symbolic-ref --short HEAD)
        git push -u origin $current_branch; }
