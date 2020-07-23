@@ -13,9 +13,15 @@
     },
 
     {
+    "key": "ctrl+alt+h",
+    "command": "editor.action.insertSnippet",
+    "args": { "name": "python-header" }
+    },
+
+    {
         "key": "ctrl+alt+m",
         "command": "workbench.action.toggleMaximizedPanel",
         "when": "!terminalfocus"
-    },
+    }
 
 ]

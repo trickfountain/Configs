@@ -42,5 +42,12 @@
 		"prefix": ["if __name", "if _main"],
 		"body": "if __name__ == '__main__' :\n\t${1:main}()",
 		"description": "Make script callable"
+	},
+
+	"python-header" : {
+		"scope": "python",
+		"prefix": ["utf-8", "python header", "header"],
+		"body": "# -*- coding: utf-8 -*-\n\n${1}",
+		"description": "Standard python header"
 	}
 }
