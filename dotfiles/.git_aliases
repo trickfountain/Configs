@@ -19,7 +19,8 @@ alias gr="git rebase --interactive"
 # Functions
 
 # git branch WIPE -- deletes remote and local branch
-gbW() { git branch -D feature/$1 && git push --delete origin feature/$1; }
+gbW() { git branch -D $1 && git push --delete origin $1; }
+gbWf() { git branch -D feature/$1 && git push --delete origin feature/$1; }
 
 # New feature/ branch
 gcof(){ git checkout feature/$1; }
