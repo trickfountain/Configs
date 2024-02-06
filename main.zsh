@@ -17,17 +17,13 @@ info () {
   printf "\r  [ \033[00;34m..\033[0m ] $1\n"
 }
 
-info "Loading personal configs from $0"
+configs_dir=$(dirname "$0")
 
-dot_dir="~/.configs/dotfiles"
+info "Loading personal configs from $configs_dir"
 
-# LOAD OTHER .DOTFILES
-#info "Looking for other config files in $dot_dir"
+dot_dir="$configs_dir/dotfiles"
 
-git_configs_path=~/.configs/dotfiles/.git_aliases
-info "loading git aliases at $git_configs_path"
-source $git_configs_path
-
+. $configs_dir/load_dotfiles.zsh $dot_dir
 
 # NAVIGATION
 alias lsa="ls -la"
@@ -36,5 +32,6 @@ alias ..="cd ../"
 alias ...="cd ../../"
 alias ....="cd ../../.."
 alias cl="clear"
+alias openconfigs=code "$0"
 
 echo "Configs loaded"
