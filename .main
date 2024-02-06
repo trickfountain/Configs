@@ -1,0 +1,40 @@
+# Main aliases
+#  reworked feb2024 to use zsh has the shell in conjunction with Warp.
+#  Warp removes the need to using quite a few plugins and extensions such as presto.
+#
+# Put generic configurations and shortcuts here and create standalone config files
+#   in the .dotfiles/ folder
+#
+#
+# Add VS COde to path
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# Main settings
+export EDITOR="code"
+
+# test from https://github.com/holman/dotfiles/blob/master/script/bootstrap
+info () { 
+  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
+}
+
+info "Loading personal configs from $0"
+
+dot_dir="~/.configs/dotfiles"
+
+# LOAD OTHER .DOTFILES
+#info "Looking for other config files in $dot_dir"
+
+git_configs_path=~/.configs/dotfiles/.git_aliases
+info "loading git aliases at $git_configs_path"
+source $git_configs_path
+
+
+# NAVIGATION
+alias lsa="ls -la"
+alias ls="ls -xa"
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../.."
+alias cl="clear"
+
+echo "Configs loaded"
